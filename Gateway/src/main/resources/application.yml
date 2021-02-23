@@ -1,0 +1,32 @@
+zuul:
+  sensitiveHeaders: Cookie,Set-Cookie
+  ignoredServices: '*'
+
+---
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: X4Tc6Qa5Cr<6xt{eZ/3AC93|B5iF]0;G0vH+AT=g*{5/_93)q,*M[T8Jbispbd5vb6S-4[f^
+---
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+---
+hystrix:
+  metrics:
+    enabled: true
+---
+management:
+  endpoint:
+    hystrix:
+      stream:
+        enabled: true
+---
+management:
+  metrics:
+    binders:
+      hystrix:
+        enabled: true
